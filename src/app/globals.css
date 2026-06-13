@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "../styles/vexilian-foundation.css";
+
+body {
+  background: var(--vx-color-graphite);
+}
