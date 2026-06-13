@@ -32,7 +32,7 @@ export function OffSeasonSection() {
             <AnnotationLabel badge>{copy.microCta}</AnnotationLabel>
           </div>
 
-          <VisualFrame>
+          <VisualFrame className="home-visual-frame--diagram">
             <OffSeasonCalendarIllustration />
           </VisualFrame>
         </div>

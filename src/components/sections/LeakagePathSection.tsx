@@ -15,10 +15,8 @@ export function LeakagePathSection() {
             title={copy.title}
           />
 
-          <VisualFrame>
-            <div className="vx-diagram-safe">
-              <LeakagePathIllustration />
-            </div>
+          <VisualFrame className="home-visual-frame--diagram">
+            <LeakagePathIllustration />
           </VisualFrame>
 
           <div className="home-card-list">

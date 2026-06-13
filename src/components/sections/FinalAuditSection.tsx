@@ -16,7 +16,7 @@ export function FinalAuditSection() {
               title={copy.title}
             />
             <p className="vx-lede">{copy.trust}</p>
-            <VisualFrame>
+            <VisualFrame className="home-visual-frame--diagram">
               <FinalAuditNoteIllustration />
             </VisualFrame>
           </div>

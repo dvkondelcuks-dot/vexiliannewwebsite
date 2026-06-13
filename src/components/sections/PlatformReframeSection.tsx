@@ -20,7 +20,7 @@ export function PlatformReframeSection() {
           </div>
 
           <div className="vx-stack">
-            <VisualFrame tone="paper">
+            <VisualFrame className="home-visual-frame--diagram" tone="paper">
               <PlatformDependenceIllustration />
             </VisualFrame>
 

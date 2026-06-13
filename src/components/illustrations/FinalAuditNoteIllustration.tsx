@@ -10,32 +10,31 @@ export function FinalAuditNoteIllustration() {
   return (
     <svg
       aria-label="Klientu noplūdes audita pārbaudes piezīme"
-      className="vx-svg-language"
+      className="vx-svg-language home-illustration-svg"
       role="img"
-      viewBox="0 0 340 300"
+      viewBox="0 0 460 340"
     >
-      <rect className="home-svg-card" height="236" rx="26" width="250" x="42" y="28" />
-      <text className="home-illustration-text" x="72" y="68">
-        auditā pārbaudām
+      <title>Audita diagnostikas piezīme ar pārbaudāmajiem punktiem</title>
+      <rect className="home-svg-dark-sheet" height="310" rx="28" width="430" x="15" y="15" />
+      <rect className="home-svg-sheet" height="254" rx="24" width="270" x="58" y="42" />
+      <text className="home-illustration-text home-illustration-text--ink" x="86" y="82">
+        Auditā pārbaudām
       </text>
       <text
-        className="home-illustration-text home-illustration-text--note"
-        x="186"
-        y="68"
+        className="home-illustration-text home-illustration-text--muted-ink"
+        x="86"
+        y="106"
       >
-        kur pazūd?
+        kur pazūd ceļš līdz rezervācijai
       </text>
 
       {checklist.map((item, index) => {
-        const y = 104 + index * 30;
+        const y = 142 + index * 30;
         return (
           <g key={item}>
-            <circle className="vx-svg-circle vx-svg-line--neon" cx="78" cy={y - 4} r="7" />
-            <path
-              className="vx-svg-arrow vx-svg-line--neon"
-              d={`M74 ${y - 4} L78 ${y} L86 ${y - 10}`}
-            />
-            <text className="home-illustration-text home-illustration-text--small" x="100" y={y}>
+            <circle className="home-svg-neon-fill" cx="92" cy={y - 5} r="8" />
+            <path className="home-svg-neon-line" d={`M88 ${y - 5} L92 ${y} L101 ${y - 11}`} />
+            <text className="home-illustration-text home-illustration-text--small home-illustration-text--ink" x="116" y={y}>
               {item}
             </text>
           </g>
@@ -43,15 +42,13 @@ export function FinalAuditNoteIllustration() {
       })}
 
       <path
-        className="vx-svg-line vx-svg-line--neon vx-path-draw"
-        d="M206 244 C230 268 268 270 304 246"
+        className="home-svg-neon-line vx-path-draw"
+        d="M328 222 C360 220 380 234 392 258"
       />
-      <text
-        className="home-illustration-text home-illustration-text--note"
-        x="220"
-        y="282"
-      >
-        ko sakārtot?
+      <path className="home-svg-neon-line" d="M381 252 L394 260 L379 269" />
+      <rect className="home-svg-sheet-soft" height="54" rx="17" width="120" x="306" y="264" />
+      <text className="home-illustration-text home-illustration-text--note" textAnchor="middle" x="366" y="296">
+        Pieteikt auditu
       </text>
     </svg>
   );

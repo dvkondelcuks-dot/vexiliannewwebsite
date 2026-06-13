@@ -18,7 +18,7 @@ export function OwnerControlSection() {
             <AnnotationLabel badge>{copy.support}</AnnotationLabel>
           </div>
 
-          <VisualFrame tone="paper">
+          <VisualFrame className="home-visual-frame--diagram" tone="paper">
             <OwnerControlBoardIllustration />
           </VisualFrame>
         </div>

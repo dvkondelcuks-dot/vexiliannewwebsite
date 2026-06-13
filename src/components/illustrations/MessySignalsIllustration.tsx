@@ -1,79 +1,103 @@
-const signals = [
-  { x: 22, y: 34, title: "Instagram DM", note: "jautāja par datumu" },
-  { x: 206, y: 22, title: "Booking", note: "apskatīja cenu" },
-  { x: 34, y: 148, title: "Telefona zvans", note: "palika sarunā" },
-  { x: 218, y: 138, title: "E-pasts", note: "nav nākamā soļa" },
-  { x: 122, y: 242, title: "Mājaslapas forma", note: "kurš kanāls?" },
-] as const;
-
 export function MessySignalsIllustration() {
   return (
     <svg
       aria-label="Pieprasījumi no dažādiem kanāliem pazūd pirms rezervācijas"
-      className="vx-svg-language"
+      className="vx-svg-language home-illustration-svg"
       role="img"
-      viewBox="0 0 380 340"
+      viewBox="0 0 560 420"
     >
+      <title>Pieprasījumi no dažādiem kanāliem un pārtrūcis ceļš līdz rezervācijai</title>
+      <rect className="home-svg-dark-sheet" height="390" rx="30" width="530" x="15" y="15" />
+
       <path
-        className="vx-svg-line vx-svg-line--ink vx-svg-line--broken"
-        d="M70 92 C118 126 143 126 177 143 C214 160 248 172 301 196"
+        className="home-svg-ink-line home-svg-ink-line--light home-svg-route-broken"
+        d="M105 104 C158 132 192 142 234 176"
       />
       <path
-        className="vx-svg-line vx-svg-line--neon vx-path-draw"
-        d="M87 251 C124 225 146 200 171 180"
+        className="home-svg-ink-line home-svg-ink-line--light home-svg-route-broken"
+        d="M452 96 C392 124 350 139 312 178"
       />
-      <circle
-        className="vx-svg-circle vx-svg-line--neon"
-        cx="184"
-        cy="166"
-        r="54"
+      <path
+        className="home-svg-ink-line home-svg-ink-line--light home-svg-route-broken"
+        d="M92 292 C144 252 184 230 236 218"
       />
-      <text
-        className="home-illustration-text home-illustration-text--note"
-        x="139"
-        y="157"
-      >
-        Kur pazuda
+      <path
+        className="home-svg-ink-line home-svg-ink-line--light home-svg-route-broken"
+        d="M455 286 C394 254 352 232 315 215"
+      />
+
+      <rect className="home-svg-sheet" height="136" rx="22" width="190" x="184" y="137" />
+      <path className="home-svg-ink-line home-svg-ink-line--faint" d="M210 178 H348" />
+      <path className="home-svg-ink-line home-svg-ink-line--faint" d="M210 215 H326" />
+      <text className="home-illustration-text home-illustration-text--ink" x="214" y="174">
+        Kur pazūd
       </text>
-      <text
-        className="home-illustration-text home-illustration-text--note"
-        x="145"
-        y="174"
-      >
+      <text className="home-illustration-text home-illustration-text--ink" x="214" y="199">
         rezervācija?
       </text>
+      <text
+        className="home-illustration-text home-illustration-text--muted-ink"
+        x="214"
+        y="239"
+      >
+        avots · statuss · solis
+      </text>
 
-      {signals.map((signal) => (
-        <g className="vx-float-gentle" key={signal.title}>
-          <rect
-            className="home-svg-card"
-            height="60"
-            rx="14"
-            width="132"
-            x={signal.x}
-            y={signal.y}
-          />
-          <text className="home-illustration-text" x={signal.x + 14} y={signal.y + 25}>
-            {signal.title}
-          </text>
-          <text
-            className="home-illustration-text home-illustration-text--small"
-            x={signal.x + 14}
-            y={signal.y + 44}
-          >
-            {signal.note}
-          </text>
-        </g>
-      ))}
+      <SignalSlip note="jautāja par datumu" title="Instagram DM" x={44} y={54} />
+      <SignalSlip note="apskatīja cenu" title="Booking pieprasījums" x={354} y={48} />
+      <SignalSlip note="palika sarunā" title="Telefona zvans" x={45} y={260} />
+      <SignalSlip note="nav nākamā soļa" title="E-pasts" x={363} y={258} />
+      <SignalSlip note="kurš kanāls?" title="Mājaslapas forma" x={176} y={316} />
 
       <path
-        className="vx-svg-arrow vx-svg-line--ink"
-        d="M255 217 C285 229 304 238 326 258"
+        className="home-svg-neon-line vx-path-draw"
+        d="M300 268 C340 288 375 302 418 314"
       />
-      <path className="vx-svg-arrow vx-svg-line--ink" d="M323 245 L329 260 L313 256" />
-      <text className="home-illustration-text home-illustration-text--small" x="286" y="285">
+      <path className="home-svg-neon-line" d="M414 304 L428 318 L408 323" />
+      <path
+        className="home-svg-ink-line home-svg-ink-line--light home-svg-route-broken"
+        d="M428 318 C456 328 480 326 507 312"
+      />
+      <circle className="home-svg-leak" cx="441" cy="318" r="20" />
+      <text
+        className="home-illustration-text home-illustration-text--note"
+        textAnchor="middle"
+        x="441"
+        y="323"
+      >
+        pazūd šeit
+      </text>
+      <text className="home-illustration-text home-illustration-text--light" x="444" y="284">
         Rezervācija
       </text>
     </svg>
+  );
+}
+
+function SignalSlip({
+  note,
+  title,
+  x,
+  y,
+}: {
+  note: string;
+  title: string;
+  x: number;
+  y: number;
+}) {
+  return (
+    <g>
+      <rect className="home-svg-sheet" height="72" rx="16" width="154" x={x} y={y} />
+      <text className="home-illustration-text home-illustration-text--ink" x={x + 15} y={y + 30}>
+        {title}
+      </text>
+      <text
+        className="home-illustration-text home-illustration-text--muted-ink"
+        x={x + 15}
+        y={y + 52}
+      >
+        {note}
+      </text>
+    </g>
   );
 }

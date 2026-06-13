@@ -38,7 +38,7 @@ export function HeroSection() {
             </p>
           </div>
 
-          <VisualFrame>
+          <VisualFrame className="home-visual-frame--diagram">
             <Badge variant="audit">pieprasījumi no visām pusēm</Badge>
             <MessySignalsIllustration />
           </VisualFrame>

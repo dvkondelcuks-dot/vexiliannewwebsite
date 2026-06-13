@@ -110,6 +110,20 @@
   gap: var(--vx-space-4);
 }
 
+.home-visual-frame--diagram {
+  padding: clamp(0.75rem, 2.4vw, 1.25rem);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(208, 255, 0, 0.06), transparent 10rem),
+    linear-gradient(135deg, rgba(244, 239, 231, 0.04), transparent 45%),
+    rgba(250, 250, 250, 0.032);
+}
+
+.home-visual-frame--diagram svg {
+  width: 100%;
+  max-height: min(38rem, 72vh);
+  margin-inline: auto;
+}
+
 .home-hero__trust {
   max-width: 38rem;
   display: flex;
@@ -448,21 +462,101 @@
 
 .home-illustration-text {
   font-family: var(--vx-font-body);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 760;
   fill: currentColor;
   letter-spacing: -0.01em;
 }
 
 .home-illustration-text--small {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
 }
 
 .home-illustration-text--note {
   fill: var(--vx-color-neon);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
+}
+
+.home-illustration-text--tiny {
+  font-size: 11px;
+  font-weight: 760;
+}
+
+.home-illustration-text--ink {
+  fill: var(--vx-color-graphite);
+}
+
+.home-illustration-text--muted-ink {
+  fill: rgba(10, 10, 10, 0.62);
+}
+
+.home-illustration-text--light {
+  fill: var(--vx-color-near-white);
+}
+
+.home-illustration-svg {
+  width: 100%;
+  height: auto;
+}
+
+.home-svg-sheet {
+  fill: var(--vx-color-warm-paper);
+  stroke: rgba(10, 10, 10, 0.2);
+  stroke-width: 1.4;
+}
+
+.home-svg-sheet-soft {
+  fill: #ede4d8;
+  stroke: rgba(10, 10, 10, 0.16);
+  stroke-width: 1.2;
+}
+
+.home-svg-dark-sheet {
+  fill: rgba(250, 250, 250, 0.055);
+  stroke: rgba(250, 250, 250, 0.17);
+  stroke-width: 1.3;
+}
+
+.home-svg-ink-line {
+  fill: none;
+  stroke: rgba(10, 10, 10, 0.78);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.15;
+}
+
+.home-svg-ink-line--light {
+  stroke: rgba(250, 250, 250, 0.72);
+}
+
+.home-svg-ink-line--faint {
+  stroke: rgba(10, 10, 10, 0.24);
+}
+
+.home-svg-route-broken {
+  stroke-dasharray: 13 9 3 9;
+}
+
+.home-svg-neon-line {
+  fill: none;
+  stroke: var(--vx-color-neon);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.65;
+}
+
+.home-svg-neon-fill {
+  fill: rgba(208, 255, 0, 0.18);
+  stroke: var(--vx-color-neon);
+  stroke-width: 1.4;
+}
+
+.home-svg-leak {
+  fill: rgba(208, 255, 0, 0.1);
+  stroke: var(--vx-color-neon);
+  stroke-width: 2;
 }
 
 @media (max-width: 430px) {
@@ -474,12 +568,12 @@
   }
 
   .home-illustration-text {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .home-illustration-text--small,
   .home-illustration-text--note {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .home-card-list,
@@ -487,6 +581,14 @@
   .home-pricing-grid,
   .home-form-grid {
     gap: var(--vx-space-3);
+  }
+
+  .home-visual-frame--diagram {
+    padding: 0.55rem;
+  }
+
+  .home-visual-frame--diagram svg {
+    max-height: none;
   }
 }
 
