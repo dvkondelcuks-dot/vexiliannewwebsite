@@ -1,0 +1,188 @@
+/*
+ * Vexilian illustration language.
+ * Maps the foundation tokens onto reusable SVG presentation classes so each
+ * diagram stays on-brand without depending on generic utility-only design.
+ */
+
+.vx-illu {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.vx-illu__view {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Responsive variants: one composition is authored for desktop, a simplified
+ * one for narrow screens. Hidden variants leave the accessibility tree. */
+.vx-illu__view--mobile {
+  display: none;
+}
+
+@media (max-width: 620px) {
+  .vx-illu__view--desktop {
+    display: none;
+  }
+
+  .vx-illu__view--mobile {
+    display: block;
+  }
+}
+
+/* ---- Surfaces ------------------------------------------------------------ */
+.vi-paper {
+  fill: var(--vx-color-warm-paper);
+}
+
+.vi-paper-deep {
+  fill: #ece4d6;
+}
+
+.vi-card {
+  fill: #fbf8f1;
+}
+
+.vi-card-tint {
+  fill: #f6efe2;
+}
+
+.vi-ink-fill {
+  fill: var(--vx-color-graphite);
+}
+
+.vi-sand-fill {
+  fill: var(--vx-color-muted-sand);
+}
+
+.vi-neon-fill {
+  fill: var(--vx-color-neon);
+}
+
+.vi-neon-wash {
+  fill: rgba(208, 255, 0, 0.16);
+}
+
+.vi-shadow {
+  fill: rgba(10, 10, 10, 0.16);
+}
+
+/* ---- Strokes ------------------------------------------------------------- */
+.vi-stroke {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.vi-ink {
+  stroke: var(--vx-color-graphite);
+}
+
+.vi-ink-soft {
+  stroke: rgba(10, 10, 10, 0.42);
+}
+
+.vi-ink-faint {
+  stroke: rgba(10, 10, 10, 0.2);
+}
+
+.vi-sand {
+  stroke: var(--vx-color-muted-sand);
+}
+
+.vi-neon {
+  stroke: var(--vx-color-neon);
+}
+
+.vi-broken {
+  stroke-dasharray: 11 9;
+}
+
+.vi-faded {
+  stroke-dasharray: 2 8;
+  opacity: 0.55;
+}
+
+/* ---- Type ---------------------------------------------------------------- */
+.vi-text {
+  font-family: var(--vx-font-body);
+  fill: var(--vx-color-graphite);
+}
+
+.vi-title-text {
+  font-family: var(--vx-font-heading);
+  font-weight: 760;
+  letter-spacing: -0.01em;
+  fill: var(--vx-color-graphite);
+}
+
+.vi-label {
+  font-family: var(--vx-font-body);
+  font-weight: 700;
+  fill: var(--vx-color-graphite);
+}
+
+.vi-label-quiet {
+  font-family: var(--vx-font-body);
+  font-weight: 600;
+  fill: rgba(10, 10, 10, 0.6);
+}
+
+.vi-hand {
+  font-family: var(--vx-font-annotation);
+  font-weight: 760;
+  fill: var(--vx-color-graphite);
+}
+
+.vi-hand-neon {
+  font-family: var(--vx-font-annotation);
+  font-weight: 760;
+  fill: #5f7400;
+}
+
+.vi-on-ink {
+  fill: var(--vx-color-near-white);
+}
+
+.vi-on-ink-quiet {
+  fill: rgba(250, 250, 250, 0.62);
+}
+
+/* Calm intentional motion, disabled under reduced-motion via foundation rule. */
+.vi-draw {
+  stroke-dasharray: var(--vi-len, 600);
+  stroke-dashoffset: var(--vi-len, 600);
+  animation: vi-draw 1400ms ease forwards;
+}
+
+.vi-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: vi-pulse 4.5s ease-in-out infinite;
+}
+
+@keyframes vi-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes vi-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vi-draw,
+  .vi-pulse {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

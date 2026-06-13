@@ -1,0 +1,11 @@
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./styles/vexilian-foundation.css";
+import "./styles/vexilian-illustrations.css";
+import Gallery from "./Gallery";
+
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <Gallery />
+  </StrictMode>,
+);
