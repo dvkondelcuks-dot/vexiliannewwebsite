@@ -28,32 +28,47 @@ export function FinalAuditSection() {
                 <p className="home-form-note">{copy.helper}</p>
               </div>
 
-              <div className="home-form-grid">
-                {formFields.required.map((label, index) => (
-                  <Field
-                    key={label}
-                    label={label}
-                    required
-                    textarea={index === 5}
-                    type={index === 2 ? "text" : "text"}
-                  />
-                ))}
+              <fieldset className="home-form-group">
+                <legend className="sr-only">Svarīgākie audita lauki</legend>
+                <div className="home-form-group__header">
+                  <h3>Svarīgākā situācija</h3>
+                  <p>Īsi dati, lai saprastu vietu, kanālus un galveno noplūdi.</p>
+                </div>
+                <div className="home-form-grid">
+                  {formFields.required.map((label, index) => (
+                    <Field
+                      key={label}
+                      label={label}
+                      required
+                      textarea={index === 5}
+                    />
+                  ))}
+                </div>
+              </fieldset>
 
-                <Field label={formFields.optional[0]} />
-                <Field label={formFields.optional[1]} />
-                <SelectField
-                  label={formFields.optional[2]}
-                  options={["Jā, sakārtoti", "Daļēji", "Nē", "Nezinu"]}
-                />
-                <SelectField
-                  label={formFields.optional[3]}
-                  options={["Jā, tas ir svarīgi", "Jā, bet nezinām, kā", "Daļēji", "Nezinu"]}
-                />
-                <SelectField
-                  label={formFields.optional[4]}
-                  options={["€100–€250", "€250–€500", "€500–€1,000", "€1,000+", "Grūti pateikt"]}
-                />
-              </div>
+              <fieldset className="home-form-group home-form-group--optional">
+                <legend className="sr-only">Papildu konteksts</legend>
+                <div className="home-form-group__header">
+                  <h3>Papildu konteksts</h3>
+                  <p>Var palīdzēt ātrāk saprast, vai auditam ir skaidrs potenciāls.</p>
+                </div>
+                <div className="home-form-grid">
+                  <Field label={formFields.optional[0]} />
+                  <Field label={formFields.optional[1]} />
+                  <SelectField
+                    label={formFields.optional[2]}
+                    options={["Jā, sakārtoti", "Daļēji", "Nē", "Nezinu"]}
+                  />
+                  <SelectField
+                    label={formFields.optional[3]}
+                    options={["Jā, tas ir svarīgi", "Jā, bet nezinām, kā", "Daļēji", "Nezinu"]}
+                  />
+                  <SelectField
+                    label={formFields.optional[4]}
+                    options={["€100–€250", "€250–€500", "€500–€1,000", "€1,000+", "Grūti pateikt"]}
+                  />
+                </div>
+              </fieldset>
 
               <label className="home-consent">
                 <input type="checkbox" />
@@ -63,7 +78,7 @@ export function FinalAuditSection() {
               <Button className="home-static-submit" disabled type="button">
                 Pieteikt bezmaksas auditu
               </Button>
-              <p className="home-form-note" id="static-form-note">
+              <p className="home-form-note home-form__static-note" id="static-form-note">
                 Statiskas formas priekšskatījums. Nosūtīšana vēl nav pieslēgta.
               </p>
             </form>
@@ -82,7 +97,6 @@ function Field({
   label: string;
   required?: boolean;
   textarea?: boolean;
-  type?: string;
 }) {
   const id = label.toLowerCase().replaceAll(" ", "-").replaceAll("/", "");
 
